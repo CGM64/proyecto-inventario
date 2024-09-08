@@ -5,7 +5,7 @@ namespace proyecto_inventario.Models
 {
     public class ApplicationUsers : IdentityUser
     {
-        [StringLength(200)]
-        public string? Direccion { get; set; }
+        //[StringLength(200)]
+        //public string? Direccion { get; set; }
     }
 }
