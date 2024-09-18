@@ -1,0 +1,44 @@
+﻿@model proyecto_inventario.Models.Inventario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Inventario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="InvEntrada" class="control-label"></label>
+                <input asp-for="InvEntrada" class="form-control" />
+                <span asp-validation-for="InvEntrada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InvSalida" class="control-label"></label>
+                <input asp-for="InvSalida" class="form-control" />
+                <span asp-validation-for="InvSalida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InvStock" class="control-label"></label>
+                <input asp-for="InvStock" class="form-control" />
+                <span asp-validation-for="InvStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -4,9 +4,7 @@ using proyecto_inventario.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorPages();
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+
 // Configurar el contexto de la base de datos
 builder.Services.AddDbContext<LoginDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StringConex")));
@@ -16,11 +14,19 @@ builder.Services.AddDefaultIdentity<ApplicationUsers>(options => options.SignIn.
     .AddEntityFrameworkStores<LoginDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddRazorPages();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
+
+    app.UseAuthorization();
+
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();

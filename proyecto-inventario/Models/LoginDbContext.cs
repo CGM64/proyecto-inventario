@@ -9,5 +9,7 @@ namespace proyecto_inventario.Models
         {
 
         }
+
+        public DbSet<Inventario> Inventario { get; set; }
     }
 }
